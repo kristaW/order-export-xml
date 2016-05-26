@@ -1,0 +1,11 @@
+<config>
+    <modules>
+        <BlueAcorn_OrderExport>
+            <active>true</active>
+            <codePool>local</codePool>
+        </BlueAcorn_OrderExport>
+        <depends>
+            <Mage_Sales/>
+        </depends>
+    </modules>
+</config>
