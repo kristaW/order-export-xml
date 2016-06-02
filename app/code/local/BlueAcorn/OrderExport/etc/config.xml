@@ -32,10 +32,10 @@
     <blueacorn>
         <export_template>
             <order>
-                <test> {{var order.entity_id}} </test>
+                <test>{{var order.entity_id}}</test>
                 <address_billing>{{var billing.firstname}} {{var billing.lastname}}</address_billing>
                 <address>{{var shipping.firstname}} {{var shipping.lastname}}</address>
-                {{var order.state}}
+                <total_due>{{var order.getBaseTotalDue()}}</total_due>
                 <items>
                     <item foreach="items">
                         <sku>{{var sku}}</sku>

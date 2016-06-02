@@ -42,6 +42,7 @@ class BlueAcorn_OrderExport_Model_Export {
         
         $io->open(array('path' => $dir));
         $io->write($xmlPath, $xmlData);
+        $io->close();
     }
 
     /**
@@ -100,7 +101,7 @@ class BlueAcorn_OrderExport_Model_Export {
                                 $value = $default;
                                 $value['id'] = $itemKey;
                                 $itemNode = $template->addChild($key);
-                                $itemNode ->addAttribute('id', $itemKey);
+//                                $itemNode ->addAttribute('id', $itemKey);
 
                                 foreach (get_object_vars($value->children()) as $valueKey => $valueChild ) {
                                     $valueChild = str_replace( array('{{var ','}}') , '', $valueChild);

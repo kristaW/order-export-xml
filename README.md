@@ -34,6 +34,14 @@ Xml construction is only interested information inside the xml tags.
 This module relies hevily of **Varien_Filter_Template** modules functionality.
 Each element needs to bee surrounded  with double angle brackets 
 
+You can also use sales/order functionality like this:
+
+```
+<total_due>{{var order.getBaseTotalDue()}}</total_due>
+```
+
+Just remember it need's to return string/boolean/number type result or you end up with values like 'object' or 'array'.
+
 #### Example:
 {{var order.entity_id}} 
 {{var billing.firstname}}
@@ -43,6 +51,9 @@ are looped trough using attribute 'foreach' with value 'items'. See example belo
 The foreach tells the code to loop trough the result values (expecting it to be an array)
 and adds new node with it's children to each item. Foreach attribute value is being used as an keyword 
 to know what is being looped trough. Currently we only have 'items' keyword.
+
+Add searched values with {{var value}},
+not with {{var item.value}}.
 
 The foreach attribute is removed from result xml.
 
