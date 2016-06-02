@@ -22,23 +22,27 @@
             </sales_order_place_after>
         </events>
     </global>
+    <default>
+        <order_export>
+            <billing>
+                <firstname>{{var order.billing.firstname}}</firstname>
+            </billing>
+        </order_export>
+    </default>
     <blueacorn>
-        <export>
+        <export_template>
             <order>
-                <status>status</status>
-                <firstname>customer_firstname</firstname>
-                <lastname>customer_lastname</lastname>
-                <email>customer_email</email>
-                <billing>
-                    <city>billing.city</city>
-                    <zip>billing.postcode</zip>
-                    <address>billing.street</address>
-                    <phone>billing.telephone</phone>
-                    <shipping>
-                        <receiper>shipping.firstname</receiper>
-                    </shipping>
-                </billing>
+                <test> {{var order.entity_id}} </test>
+                <address_billing>{{var billing.firstname}} {{var billing.lastname}}</address_billing>
+                <address>{{var shipping.firstname}} {{var shipping.lastname}}</address>
+                {{var order.state}}
+                <items>
+                    <item foreach="items">
+                        <sku>{{var sku}}</sku>
+                        <name>{{var name}}</name>
+                    </item>
+                </items>
             </order>
-        </export>
+        </export_template>
     </blueacorn>
 </config>
